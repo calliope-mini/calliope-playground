@@ -1,16 +1,23 @@
-#include "MicroBit.h" 
+#include "CalliopeDemos.h"
+
+#include "MicroBit.h"
 #include "CalliopeRGB.h" 
 #include "CalliopeSoundMotor.h" 
 
+#ifdef CALLIOPE_DEMO_SOUNDMOTORRGB
+
 MicroBit uBit;
+MicroBitDisplay display;
+MicroBitSerial serial(USBTX, USBRX);
 
 int main() {
     // Initialise the micro:bit runtime.
     uBit.init();
-    uBit.sleep(10000);
+    display.scroll("WELCOME");
+    serial.baud(115200);
+    serial.send("DEMO\n\r");
 
     uBit.rgb.Set_Color(0, 0xff, 0xff, 0);
-    uBit.sleep(10000);
 
     while (1) {
         //motors A and B on for 12 seconds, blink red and green
@@ -60,3 +67,4 @@ int main() {
     }
 } 
 
+#endif
