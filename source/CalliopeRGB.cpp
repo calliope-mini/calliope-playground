@@ -12,7 +12,15 @@ MicroBit uBit;
 int main() {
     uBit.init();
 
-    uBit.rgb.Set_Color(0xff, 0x00, 0x00, 0x00);
+    uBit.rgb.setColour(0xff, 0x00, 0x00, 0x00);
+
+    uBit.sleep(1000);
+
+    uBit.rgb.setColour(0x00, 0xff, 0x00, 0x00);
+
+    uBit.sleep(1000);
+
+    uBit.rgb.setColour(0x00, 0x00, 0xff, 0x00);
 
     uBit.sleep(1000);
 
