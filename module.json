@@ -4,7 +4,7 @@
   "description": "Examples for Calliope-MINI functions.",
   "license": "ASL 2.0",
   "dependencies": {
-    "microbit": "calliope-mini/microbit#v0.2.1-calliope"
+    "microbit": "calliope-mini/microbit#v0.2.6-calliope"
   },
   "targetDependencies": {},
   "bin": "./source"
