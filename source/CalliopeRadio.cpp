@@ -41,10 +41,9 @@ int main() {
 
     uBit.messageBus.listen(MICROBIT_ID_RADIO, MICROBIT_RADIO_EVT_DATAGRAM, onData);
 
-    if(uBit.radio.enable() == MICROBIT_OK) {
-        uBit.display.scroll("Radio OK");
-    }
+    if(uBit.radio.enable() == MICROBIT_OK) uBit.display.scroll("MASTER READY");
     uBit.radio.setGroup(227);
+    uBit.display.scroll("A-START B-SEED AB-STOP");
 
     while(true) uBit.sleep(100);
 }
