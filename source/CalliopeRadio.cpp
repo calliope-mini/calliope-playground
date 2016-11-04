@@ -16,7 +16,13 @@ void buttonA(MicroBitEvent event) {
 }
 
 void buttonB(MicroBitEvent event) {
-    uBit.radio.datagram.send(uBit.random(100) < 50 ? "0" : "1");
+    uBit.serial.send("START 1\r\n");
+    uBit.radio.datagram.send("H1");
+}
+
+void buttonB1(MicroBitEvent event) {
+    uBit.serial.send("RANDOM SEED\r\n");
+    uBit.radio.datagram.send(uBit.random(100) > 20 ? "1" : "0");
 }
 
 void buttonAB(MicroBitEvent event) {
@@ -37,13 +43,13 @@ int main() {
 
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, buttonA);
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, buttonB);
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_LONG_CLICK, buttonB1);
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_AB, MICROBIT_BUTTON_EVT_CLICK, buttonAB);
 
     uBit.messageBus.listen(MICROBIT_ID_RADIO, MICROBIT_RADIO_EVT_DATAGRAM, onData);
 
-    if(uBit.radio.enable() == MICROBIT_OK) uBit.display.scroll("MASTER READY");
+    if(uBit.radio.enable() == MICROBIT_OK) uBit.display.scroll("RDY");
     uBit.radio.setGroup(227);
-    uBit.display.scroll("A-START B-SEED AB-STOP");
 
     while(true) uBit.sleep(100);
 }
