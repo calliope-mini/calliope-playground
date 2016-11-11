@@ -18,6 +18,19 @@ int main() {
     uBit.serial.baud(115200);
     uBit.serial.send("MOTORS\n\r");
 
+    uBit.display.print("A");
+    uBit.soundmotor.motorAOn(100);
+    uBit.sleep(1000);
+    uBit.soundmotor.motorAOff();
+    uBit.display.print("B");
+    uBit.soundmotor.motorBOn(100);
+    uBit.sleep(1000);
+    uBit.soundmotor.motorBOff();
+    uBit.display.print("A");
+    uBit.soundmotor.motorAOn(100);
+    uBit.sleep(1500);
+    uBit.soundmotor.motorAOff();
+
     uBit.serial.printf("A+B 100%%\r\n");
     uBit.soundmotor.motorAOn(100);
     uBit.soundmotor.motorBOn(100);
