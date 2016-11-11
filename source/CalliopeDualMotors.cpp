@@ -53,7 +53,7 @@ int main() {
     uBit.soundmotor.motorAOff();
 
     uBit.serial.printf("B speedup (1)\r\n");
-    for (uint8_t int i = 10; i <= 100; i += 10) {
+    for (uint8_t i = 10; i <= 100; i += 10) {
         uBit.serial.printf("B - %d \r\n", i);
         uBit.soundmotor.motorBOn(i);
         uBit.soundmotor.motorAOff();
@@ -63,7 +63,7 @@ int main() {
 
     // from here on it goes wrong! NO MORE!
     uBit.serial.printf("A speedup (2)\r\n");
-    for (uint8_t int i = 10; i <= 100; i += 10) {
+    for (uint8_t i = 10; i <= 100; i += 10) {
         uBit.serial.printf("A - %d \r\n", i);
         uBit.soundmotor.motorAOn(i);
         uBit.sleep(1000);
@@ -71,7 +71,7 @@ int main() {
     uBit.soundmotor.motorAOff();
 
     uBit.serial.printf("B speedup (2)\r\n");
-    for (uint8_t int i = 10; i <= 100; i += 10) {
+    for (uint8_t i = 10; i <= 100; i += 10) {
         uBit.serial.printf("B - %d \r\n", i);
         uBit.soundmotor.motorBOn(i);
         uBit.sleep(1000);
