@@ -14,26 +14,26 @@ int main() {
     uBit.init();
     while (1) {
         for (int i = 40; i < 500; i++) {
-            uBit.soundmotor.MotorB_On(i);
-            uBit.soundmotor.MotorA_On(i);
+            uBit.soundmotor.motorBOn(i);
+            uBit.soundmotor.motorAOn(i);
             uBit.sleep(100);
         }
-        uBit.soundmotor.MotorB_Off();
-        uBit.soundmotor.MotorA_Off();
+        uBit.soundmotor.motorBOff();
+        uBit.soundmotor.motorAOff();
 
-        uBit.soundmotor.MotorA_On(80);
+        uBit.soundmotor.motorAOn(80);
         uBit.sleep(300);
-        uBit.soundmotor.MotorA_Off();
+        uBit.soundmotor.motorAOff();
 
-        uBit.soundmotor.MotorB_On(80);
+        uBit.soundmotor.motorBOn(80);
         uBit.sleep(300);
-        uBit.soundmotor.MotorB_Off();
+        uBit.soundmotor.motorBOff();
 
-        uBit.soundmotor.MotorB_On(80);
-        uBit.soundmotor.MotorA_On(80);
+        uBit.soundmotor.motorBOn(80);
+        uBit.soundmotor.motorAOn(80);
         uBit.sleep(300);
-        uBit.soundmotor.MotorB_Off();
-        uBit.soundmotor.MotorA_Off();
+        uBit.soundmotor.motorBOff();
+        uBit.soundmotor.motorAOff();
 
         uBit.sleep(2000);
     }

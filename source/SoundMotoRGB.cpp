@@ -20,8 +20,8 @@ int main() {
 
     while (1) {
         //motors A and B on for 12 seconds, blink red and green
-        uBit.soundmotor.MotorB_On(80);
-        uBit.soundmotor.MotorA_On(80);
+        uBit.soundmotor.motorBOn(80);
+        uBit.soundmotor.motorAOn(80);
 
         for (int i = 0; i < 6; i++) {
             uBit.rgb.setColour(0, 100, 0, 0);
@@ -31,14 +31,14 @@ int main() {
         }
 
         //all off, short delay
-        uBit.soundmotor.MotorB_Off();
-        uBit.soundmotor.MotorA_Off();
+        uBit.soundmotor.motorBOff();
+        uBit.soundmotor.motorAOff();
         uBit.rgb.setColour(0, 0, 0, 0);
         uBit.sleep(2000);
 
         //sound on for 6 seconds in silent mode, blink blue and white
-        uBit.soundmotor.Sound_Set_Silent_Mode(true);
-        uBit.soundmotor.Sound_On(50);
+        uBit.soundmotor.setSoundSilentMode(true);
+        uBit.soundmotor.soundOn(50);
 
 
         for (int i = 0; i < 3; i++) {
@@ -49,8 +49,8 @@ int main() {
         }
 
         //sound on for 6 seconds without silent mode, blink blue and white
-        uBit.soundmotor.Sound_Set_Silent_Mode(false);
-        uBit.soundmotor.Sound_On(100);
+        uBit.soundmotor.setSoundSilentMode(false);
+        uBit.soundmotor.soundOn(100);
 
         for (int i = 0; i < 3; i++) {
             uBit.rgb.setColour(0, 0, 100, 0);
@@ -60,7 +60,7 @@ int main() {
         }
 
         //all off, short delay
-        uBit.soundmotor.Sound_Off();
+        uBit.soundmotor.soundOff();
         uBit.rgb.setColour(0, 0, 0, 0);
         uBit.sleep(2000);
     }

@@ -45,20 +45,17 @@ void onButton(MicroBitEvent e)
     if (e.source == MICROBIT_ID_BUTTON_AB)
         uBit.serial.printf("BUTTON A+B: ");
 
-    if (e.source == MICROBIT_ID_IO_P0)
+    if (e.source == MICROBIT_ID_IO_P12)
         uBit.serial.printf("TOUCH 0: ");
 
-    if (e.source == MICROBIT_ID_IO_P1)
+    if (e.source == MICROBIT_ID_IO_P0)
         uBit.serial.printf("TOUCH 1: ");
 
-    if (e.source == MICROBIT_ID_IO_P2)
+    if (e.source == MICROBIT_ID_IO_P1)
         uBit.serial.printf("TOUCH 2: ");
 
-    if (e.source == CALLIOPE_ID_IO_P3)
-        uBit.serial.printf("TOUCH 3 (rev0.2): ");
-
-    if (e.source == CALLIOPE_ID_IO_P22)
-        uBit.serial.printf("TOUCH 3 (rev0.3: ");
+    if (e.source == MICROBIT_ID_IO_P16)
+        uBit.serial.printf("TOUCH 3: ");
 
     if (e.value == MICROBIT_BUTTON_EVT_DOWN)
         uBit.serial.printf("DOWN");
@@ -92,19 +89,17 @@ int main()
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_EVT_ANY, onButton);
     uBit.messageBus.listen(MICROBIT_ID_BUTTON_AB, MICROBIT_EVT_ANY, onButton);
 
-    // Also register for touch events on P0, P1 and P2.
+    // Also register for touch events on P0, P1, P2 and P3.
+    uBit.messageBus.listen(MICROBIT_ID_IO_P12, MICROBIT_EVT_ANY, onButton);
     uBit.messageBus.listen(MICROBIT_ID_IO_P0, MICROBIT_EVT_ANY, onButton);
     uBit.messageBus.listen(MICROBIT_ID_IO_P1, MICROBIT_EVT_ANY, onButton);
-    uBit.messageBus.listen(MICROBIT_ID_IO_P2, MICROBIT_EVT_ANY, onButton);
-    uBit.messageBus.listen(CALLIOPE_ID_IO_P3, MICROBIT_EVT_ANY, onButton);
-    uBit.messageBus.listen(CALLIOPE_ID_IO_P22, MICROBIT_EVT_ANY, onButton);
+    uBit.messageBus.listen(MICROBIT_ID_IO_P16, MICROBIT_EVT_ANY, onButton);
 
     // Put the P0, P1 and P2 pins into touch sense mode.
+    uBit.io.P12.isTouched();
     uBit.io.P0.isTouched();
     uBit.io.P1.isTouched();
-    uBit.io.P2.isTouched();
-    uBit.io.CAL_P3.isTouched();
-    uBit.io.CAL_P22.isTouched();
+    uBit.io.P16.isTouched();
 
     // We're done, so just enter a power efficient sleep while we wait for an event.
     while (1)
