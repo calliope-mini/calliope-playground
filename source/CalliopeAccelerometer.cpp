@@ -30,7 +30,7 @@ int main()
       x = nx;
       y = ny;
       uBit.display.image.clear();
-      uBit.display.image.setPixelValue(y, x, 255);
+      uBit.display.image.setPixelValue(x, y, 255);
       //uBit.serial.printf(" x=%d,  y=%d\r\n", nx, ny);
     }
     uint16_t gesture = uBit.accelerometer.getGesture();
