@@ -38,14 +38,16 @@ int main() {
     uBit.messageBus.listen(MICROBIT_ID_BLE, MICROBIT_BLE_EVT_CONNECTED, onConnected);
     uBit.messageBus.listen(MICROBIT_ID_BLE, MICROBIT_BLE_EVT_DISCONNECTED, onDisconnected);
 
-    new MicroBitButtonService(*uBit.ble);
     new MicroBitTemperatureService(*uBit.ble, uBit.thermometer);
 
     uBit.soundmotor.motorOn(100);
     uBit.rgb.setColour(255, 255, 255, 0);
 
     int i = 0;
-    for(;;) if(++i % 1000000 == 0) printf("MCU: %dºC\r\n", uBit.thermometer.getTemperature());
+    for(;;) {
+        uBit.sleep(1);
+        if(++i % 1000000 == 0) printf("MCU: %dºC\r\n", uBit.thermometer.getTemperature());
+    }
 }
 
 #endif
